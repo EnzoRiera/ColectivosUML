@@ -1,0 +1,22 @@
+Parada origen: Parada [codigo=31, direccion=Bv. Almirante Brown, 3053]
+Parada destino: Parada [codigo=66, direccion=Los Alamos, 3900]
+Llega a la parada: 10:35
+============================
+Linea: Línea 2 Regreso
+Paradas: [Parada [codigo=31, direccion=Bv. Almirante Brown, 3053], Parada [codigo=8, direccion=Aarón Jenkins, 219], Parada [codigo=33, direccion=Chiquichan, 22], Parada [codigo=20, direccion=Avenida Julio Argentino Roca, 1615], Parada [codigo=25, direccion=Bartolomé Mitre, 610], Parada [codigo=24, direccion=Bartolomé Mitre, 401]]
+Hora de Salida: 10:39
+Duración: 00:08
+============================
+Caminado
+Paradas: [Parada [codigo=24, direccion=Bartolomé Mitre, 401], Parada [codigo=75, direccion=Marcos A. Zar, 461]]
+Hora de Salida: 10:47
+Duración: 00:02
+============================
+Linea: Línea 6 Ida
+Paradas: [Parada [codigo=75, direccion=Marcos A. Zar, 461], Parada [codigo=76, direccion=Marcos A. Zar, 691], Parada [codigo=38, direccion=Dorrego, 669], Parada [codigo=40, direccion=El Jariyal, 1725], Parada [codigo=66, direccion=Los Alamos, 3900]]
+Hora de Salida: 11:02
+Duración: 00:10
+============================
+Duración total: 00:37
+Hora de llegada: 11:12
+============================

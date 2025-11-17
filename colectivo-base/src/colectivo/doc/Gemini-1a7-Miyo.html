@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen Técnico: Sistema de Gestión de Colectivos</title>
+    <!-- Cargar Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Cargar Fuente Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Definición de la Paleta de Colores y Estilos Base --- */
+        :root {
+            --bg: #1a1a2e;
+            --text-main: #f0f0f0;
+            --text-secondary: #b0b0b0;
+            --accent-green: #00ff88;
+            --accent-cian: #00d9ff;
+            --code-bg: #2a2a3e; /* Fondo para bloques de código */
+            --border-color: #3a3a5e; /* Bordes sutiles */
+            --highlight-yellow: #ffaa00; /* Para advertencias */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* --- Estilos para Títulos --- */
+        h1, h2, h3 {
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        h1 {
+            color: white;
+        }
+        
+        /* Título de cada "Diapositiva" */
+        .slide-title {
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 700;
+            color: var(--accent-cian);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .slide-title span {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            padding-left: 0.5rem;
+        }
+
+        /* Título de cada Sección dentro de una diapositiva */
+        h3 {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* --- Estilos para Bloques de Código --- */
+        pre {
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            color: #f0f0f0;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        pre code .comment { color: #808080; } /* Gris para comentarios */
+        pre code .keyword { color: var(--accent-cian); } /* Cian para palabras clave */
+        pre code .class-name { color: var(--highlight-yellow); } /* Amarillo/Naranja para Clases */
+        pre code .string { color: var(--accent-green); } /* Verde para strings */
+        pre code .method { color: #e0e0e0; } /* Blanco brillante para métodos */
+        pre code .type { color: #88aaff; } /* Azul claro para tipos */
+
+        /* --- Otros Estilos --- */
+        ul {
+            list-style-position: outside;
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contenedor principal */
+        .slide-container {
+            background-color: rgba(42, 42, 62, 0.3); /* Fondo de "tarjeta" sutil */
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Bloque de advertencia */
+        .warning-box {
+            background-color: rgba(255, 170, 0, 0.1);
+            border: 1px solid var(--highlight-yellow);
+            border-left-width: 4px;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+        .warning-box strong {
+            color: var(--highlight-yellow);
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Encabezado Principal de la Página -->
+    <header class="text-center py-16 px-6">
+        <h1 class="text-5xl font-bold mb-4">Sistema de Gestión de Colectivos</h1>
+        <p class="text-2xl font-light" style="color: var(--accent-cian);">
+            Resumen de Contenido Técnico (Diapositivas 1-7)
+        </p>
+    </header>
+
+    <!-- Contenedor Principal del Contenido -->
+    <main class="max-w-5xl mx-auto px-6 pb-20">
+
+        <!-- ===== DIAPOSITIVA 1: Portada y Visión General ===== -->
+        <section class="slide-container" id="slide-1">
+            <h2 class="slide-title">1. Portada y Visión General</h2>
+            
+            <h3>Equipo de Desarrollo</h3>
+            <ul class="list-disc">
+                <li>Matías Agustín Sepúlveda</li>
+                <li>Carlos Miyen Brandolino</li>
+                <li>Enzo Sebastián Riera</li>
+            </ul>
+
+            <h3>Descripción del Proyecto</h3>
+            <p class="text-lg" style="color: var(--text-secondary);">
+                Una aplicación Java diseñada para consultar rutas de transporte público urbano, soportando interfaces de consola y gráfica (JavaFX).
+            </p>
+
+            <h3>Características Principales</h3>
+            <ul class="list-disc">
+                <li>Cálculo de recorridos: directos, con transbordos y conexiones a pie.</li>
+                <li>Consumo de datos desde múltiples fuentes (texto, BD, binarios).</li>
+                <li>Optimización de la planificación de viajes en transporte público.</li>
+            </ul>
+        </section>
+
+        <!-- ===== DIAPOSITIVA 2: Metodología y Herramientas ===== -->
+        <section class="slide-container" id="slide-2">
+            <h2 class="slide-title">2. Metodología y Herramientas</h2>
+
+            <h3>Modalidad de Trabajo (Gestión)</h3>
+            <ul class="list-disc">
+                <li><strong>Comunicación:</strong> Discord</li>
+                <li><strong>Gestión de Tareas:</strong> Trello</li>
+                <li><strong>Control de Versiones:</strong> Git y GitHub</li>
+            </ul>
+
+            <h3>Herramientas de Desarrollo (Técnico)</h3>
+            <ul class="list-disc">
+                <li><strong>IDEs:</strong> Eclipse, IntelliJ IDEA, VSCode</li>
+                <li><strong>Sistemas Operativos:</strong> Windows y Linux</li>
+            </ul>
+
+            <h3>División de Tareas (Post-Incremento 1)</h3>
+            <ul class="list-none padding-left-0">
+                <li><strong style="color: var(--accent-green);">Miyén:</strong> Arquitectura, proyecto Maven, Git, Interfaz desacoplada, DAO Secuencial.</li>
+                <li><strong style="color: var(--accent-green);">Enzo:</strong> Obtención de datos, DAO PostgreSQL, Logs (Log4j), Mantenimiento de BD.</li>
+                <li><strong style="color: var(--accent-green);">Agustín:</strong> Optimización de cálculos, Interfaz JavaFX, Formateo, Visualización de mapas.</li>
+            </ul>
+        </section>
+
+        <!-- ===== DIAPOSITIVA 3: Arquitectura Inicial Inspirada en 'Subte' ===== -->
+        <section class="slide-container" id="slide-3">
+            <h2 class="slide-title">3. Arquitectura Inicial Inspirada en 'Subte'</h2>
+            
+            <h3>Contexto "Subte" y Desafío</h3>
+            <ul class="list-disc">
+                <li>Proyecto base de la cátedra con 9-10 incrementos de patrones progresivos.</li>
+                <li><strong>Nuestro Desafío:</strong> Implementar TODOS los patrones en una arquitectura unificada desde el inicio.</li>
+            </ul>
+
+            <h3>4 Patrones Fundamentales Implementados</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                
+                <div class="border p-6 rounded-lg" style="border-color: var(--border-color);">
+                    <h4 class="text-xl font-bold mb-2" style="color: var(--accent-green);">🏭 DAO (Data Access Object)</h4>
+                    <p style="color: var(--text-secondary);">Abstracción del acceso a datos, separando persistencia de lógica.</p>
+                </div>
+                
+                <div class="border p-6 rounded-lg" style="border-color: var(--border-color);">
+                    <h4 class="text-xl font-bold mb-2" style="color: var(--accent-green);">🔧 Factory Pattern</h4>
+                    <p style="color: var(--text-secondary);">Creación dinámica de instancias (DAOs, Interfaces) y configuración centralizada.</p>
+                </div>
+
+                <div class="border p-6 rounded-lg" style="border-color: var(--border-color);">
+                    <h4 class="text-xl font-bold mb-2" style="color: var(--accent-green);">🎭 MVC (Model-View-Controller)</h4>
+                    <p style="color: var(--text-secondary);">Separación de responsabilidades (Modelo, Vista, Controlador).</p>
+                </div>
+
+                <div class="border p-6 rounded-lg" style="border-color: var(--border-color);">
+                    <h4 class="text-xl font-bold mb-2" style="color: var(--accent-green);">🚪 Facade Pattern (Service Layer)</h4>
+                    <p style="color: var(--text-secondary);">Services como punto de entrada simplificado a la lógica de negocio.</p>
+                </div>
+            </div>
+
+            <h3>Principios de Diseño Respetados</h3>
+            <ul class="list-disc">
+                <li>✅ No modificar el paquete <strong>Modelo</strong> (restricción de consigna).</li>
+                <li>✅ Respetar nombres de paquetes y reutilizar clases de "Subte".</li>
+            </ul>
+        </section>
+
+        <!-- ===== DIAPOSITIVA 4: Desafíos de Implementación: SecuencialDAO ===== -->
+        <section class="slide-container" id="slide-4">
+            <h2 class="slide-title">4. Desafíos de Implementación: SecuencialDAO</h2>
+            
+            <h3>Modificación Necesaria del Modelo</h3>
+            <p>El paquete Modelo no proveía horarios. Se agregó `getHorasFrecuencia` a `Linea.java` para calcular la espera del pasajero.</p>
+            <pre><code><span class="comment">/**
+ * Returns the list of frequency times for a specific day...
+ * @param diaSemana day of the week (1=Monday, ..., 7=Sunday)
+ */</span>
+<span class="keyword">public</span> <span class="type">List&lt;LocalTime&gt;</span> <span class="method">getHorasFrecuencia</span>(<span class="type">int</span> diaSemana) {
+    <span class="type">List&lt;LocalTime&gt;</span> horas = <span class="keyword">new</span> <span class="type">ArrayList&lt;&gt;</span>();
+    <span class="keyword">for</span> (<span class="type">Frecuencia</span> frecuencia : frecuencias) {
+        <span class="keyword">if</span> (frecuencia.<span class="method">getDiaSemana</span>() == diaSemana) {
+            horas.<span class="method">add</span>(frecuencia.<span class="method">getHora</span>());
+        }
+    }
+    <span class="keyword">return</span> horas;
+}</code></pre>
+
+            <h3>Desafío de Parsing (Coordenadas)</h3>
+            <p>Los archivos `.txt` usaban coma (<code>,</code>) para decimales, pero Java espera punto (<code>.</code>).</p>
+            <pre><code><span class="comment">// Solución: Normalización con String.replace()</span>
+<span class="type">String</span> latStr = partes[2].<span class="method">strip</span>().<span class="method">replace</span>(<span class="string">','</span>, <span class="string">'.'</span>);
+<span class="type">String</span> lonStr = partes[3].<span class="method">strip</span>().<span class="method">replace</span>(<span class="string">','</span>, <span class="string">'.'</span>);
+
+<span class="type">double</span> latitud = <span class="type">Double</span>.<span class="method">parseDouble</span>(latStr);
+<span class="type">double</span> longitud = <span class="type">Double</span>.<span class="method">parseDouble</span>(lonStr);</code></pre>
+            
+            <h3>Desafíos de Carga Bidireccional</h3>
+            <ul class="list-disc">
+                <li><strong>Problema 1 (Línea ↔ Parada):</strong> `linea.agregarParada()` también llamaba a `parada.agregarLinea()`, causando duplicación de datos.</li>
+                <li><strong>Problema 2 (Tramos Caminando):</strong> El constructor de `Tramo` (tipo 2) agregaba la conexión a pie en *ambas* paradas, generando también duplicados.</li>
+                <li><strong>Solución:</strong> Se modificó la lógica de carga para controlar las referencias bidireccionales manualmente, evitando las llamadas automáticas del modelo.</li>
+            </ul>
+        </section>
+
+        <!-- ===== DIAPOSITIVA 5: Patrones Clave de la Arquitectura (Flujo) ===== -->
+        <section class="slide-container" id="slide-5">
+            <h2 class="slide-title">5. Patrones Clave de la Arquitectura (Flujo)</h2>
+            <p class="text-lg -mt-6 mb-6" style="color: var(--text-secondary);">Flujo de Inicialización y Configuración Dinámica</p>
+
+            <h3>1. 🏭 Factory + Registry (con Reflexión)</h3>
+            <p>Permite seleccionar la implementación de DAO e Interfaz sin recompilar, editando <code>factory.properties</code>.</p>
+            <pre><code><span class="comment"># Comentar el dao que no se va a utilizar</span>
+LINEA=colectivo.dao.secuencial.LineaSecuencialDAO
+PARADA=colectivo.dao.secuencial.ParadaSecuencialDAO
+<span class="comment">#INTERFAZ=colectivo.interfaz.consola.InterfazConsola</span>
+INTERFAZ=colectivo.interfaz.javafx.InterfazJavaFX
+<span class="comment">#LINEA=colectivo.dao.postgresql.LineaPostgresqlDAO</span></code></pre>
+
+            <div class="text-center text-4xl my-6" style="color: var(--accent-cian);">⬇️</div>
+
+            <h3>2. 🚪 Service Layer (Facade)</h3>
+            <p>El Service actúa como cliente del Factory, solicitando una instancia sin conocer la implementación concreta.</p>
+            <pre><code><span class="comment">// En InterfazServiceImpl.java</span>
+<span class="keyword">public</span> <span class="class-name">InterfazServiceImpl</span>() {
+    <span class="comment">// Pide "INTERFAZ", Factory le da Consola o JavaFX</span>
+    interfaz = <span class="class-name">Factory</span>.<span class="method">getInstancia</span>(<span class="string">"INTERFAZ"</span>, <span class="type">Interfaz</span>.<span class="keyword">class</span>);
+}</code></pre>
+
+            <div class="text-center text-4xl my-6" style="color: var(--accent-cian);">⬇️</div>
+
+            <h3>3. 💾 Ciudad (Repository + Singleton)</h3>
+            <p>Actúa como Repositorio Singleton en memoria. Carga todos los datos una sola vez al inicio para optimizar el rendimiento.</p>
+            <pre><code><span class="comment">// Método de acceso Singleton</span>
+<span class="keyword">public static</span> <span class="type">Ciudad</span> <span class="method">getCiudad</span>() <span class="keyword">throws</span> <span class="type">Exception</span> {
+    <span class="keyword">if</span> (ciudad == <span class="keyword">null</span>) {
+        ciudad = <span class="keyword">new</span> <span class="class-name">Ciudad</span>();
+    }
+    <span class="keyword">return</span> ciudad;
+}
+
+<span class="comment">// Constructor privado que carga todo usando los Services</span>
+<span class="keyword">private</span> <span class="class-name">Ciudad</span>() <span class="keyword">throws</span> <span class="type">Exception</span> {
+    paradaService = <span class="keyword">new</span> <span class="class-name">ParadaServiceImpl</span>();
+    paradas = <span class="keyword">new</span> <span class="type">TreeMap&lt;&gt;</span>(paradaService.<span class="method">buscarTodos</span>());
+    
+    lineaService = <span class="keyword">new</span> <span class="class-name">LineaServiceImpl</span>();
+    lineas = <span class="keyword">new</span> <span class="type">TreeMap&lt;&gt;</span>(lineaService.<span class="method">buscarTodos</span>());
+    <span class="comment">// ... y tramos</span>
+}</code></pre>
+            
+            <div class="text-center text-4xl my-6" style="color: var(--accent-cian);">⬇️</div>
+
+            <h3>4. 🧠 Coordinador (Orquestador)</h3>
+            <div class="warning-box mb-4">
+                <strong>Nota de Diseño Importante:</strong> El <code>Coordinador</code> <strong>NO ES UN SINGLETON</strong>. Su rol es orquestar e inicializar, conectando los componentes. El estado global reside en <code>Ciudad</code>.
+            </div>
+            <pre><code><span class="comment">// En Coordinador.java</span>
+<span class="keyword">public</span> <span class="type">void</span> <span class="method">inicializarAplicacion</span>() {
+    configuracion = <span class="class-name">Configuracion</span>.<span class="method">getConfiguracion</span>();
+    configuracion.<span class="method">setCoordinador</span>(<span class="keyword">this</span>);
+    
+    <span class="keyword">try</span> {
+        <span class="comment">// 1. Obtiene el Singleton del Repositorio</span>
+        ciudad = <span class="class-name">Ciudad</span>.<span class="method">getCiudad</span>();
+        ciudad.<span class="method">setCoordinador</span>(<span class="keyword">this</span>);
+    } <span class="keyword">catch</span> (<span class="type">Exception</span> e) { ... }
+    
+    calculo = <span class="keyword">new</span> <span class="class-name">Calculo</span>();
+    calculo.<span class="method">setCoordinador</span>(<span class="keyword">this</span>);
+    
+    <span class="comment">// 2. Crea la Interfaz via Service->(Factory)</span>
+    interfazService = <span class="keyword">new</span> <span class="class-name">InterfazServiceImpl</span>();
+    interfazService.<span class="method">setCoordinador</span>(<span class="keyword">this</span>);
+    
+    <span class="comment">// 3. Inyecta i18n</span>
+    <span class="class-name">Formateador</span>.<span class="method">setResourceBundle</span>(configuracion.<span class="method">getResourceBundle</span>());
+}</code></pre>
+        </section>
+
+        <!-- ===== DIAPOSITIVA 6: Flujo de Ejecución y Arquitectura Final ===== -->
+        <section class="slide-container" id="slide-6">
+            <h2 class="slide-title">6. Flujo de Ejecución y Arquitectura Final</h2>
+            <p class="text-lg -mt-6 mb-6" style="color: var(--text-secondary);">Esta sección resume la arquitectura completa y el flujo de una consulta.</p>
+
+            <h3>Capas de la Arquitectura (Resumen)</h3>
+            <ul class="list-disc">
+                <li><strong>Entry Point:</strong> `AplicacionConsultas` / `AplicacionJavaFX`</li>
+                <li><strong>Orchestrator:</strong> `Coordinador` (No-Singleton)</li>
+                <li><strong>View/Business:</strong> `Interfaz` (View) y `Calculo` (Business)</li>
+                <li><strong>Facades/Strategies:</strong>
+                    <ul class="list-disc pl-6 mt-2">
+                        <li>`InterfazService`, `LineaService`, `ParadaService`, `TramoService`</li>
+                        <li>`EstrategiaBusqueda` (Strategy)</li>
+                        <li>`Ciudad` (Repository + Singleton)</li>
+                    </ul>
+                </li>
+                <li><strong>Factory:</strong> `Factory.java` (con Reflexión)</li>
+                <li><strong>Interfaces DAO:</strong> `LineaDAO`, `ParadaDAO`, `TramoDAO`</li>
+                <li><strong>Implementaciones DAO:</strong> `SecuencialDAO`, `AleatorioDAO`, `PostgresqlDAO`</li>
+                <li><strong>Persistencia:</strong> Archivos `.txt`, `.dat` y Base de Datos PostgreSQL.</li>
+            </ul>
+
+            <h3>Flujo de Consulta Típica (Secuencia)</h3>
+            <p style="color: var(--text-secondary);">Usuario → Interfaz → Coordinador → Calculo → EstrategiaBusqueda → Ciudad (Repository) → ... (retorno) ... → Usuario.</p>
+
+            <h3>Ventajas Clave del Diseño</h3>
+            <ul class="list-disc">
+                <li>✅ Desacoplamiento total entre capas.</li>
+                <li>✅ Configuración dinámica (cambio de DAOs/UI) sin recompilar.</li>
+                <li>✅ Alta extensibilidad y mantenibilidad.</li>
+                <li>✅ Testabilidad independiente por capa (con mocks).</li>
+                <li>✅ Responsabilidades claras (SRP).</li>
+            </ul>
+        </section>
+        
+        <!-- ===== DIAPOSITIVA 7: Funcionalidades Avanzadas (Profundización) ===== -->
+        <section class="slide-container" id="slide-7">
+            <h2 class="slide-title">7. Funcionalidades Avanzadas (Profundización)</h2>
+
+            <h3>1. Inicialización Parametrizable</h3>
+            <p>El `Coordinador` centraliza la inicialización y la inyección de dependencias manual (ej. `setCoordinador()`).</p>
+            <pre><code><span class="comment">// Coordinador.inicializarAplicacion()</span>
+<span class="comment">// 1. Carga Configuración</span>
+configuracion = <span class="class-name">Configuracion</span>.<span class="method">getConfiguracion</span>();
+<span class="comment">// 2. Carga Repositorio (Singleton)</span>
+ciudad = <span class="class-name">Ciudad</span>.<span class="method">getCiudad</span>();
+<span class="comment">// 3. Crea Lógica de Cálculo</span>
+calculo = <span class="keyword">new</span> <span class="class-name">Calculo</span>();
+<span class="comment">// 4. Crea Interfaz (vía Factory)</span>
+interfazService = <span class="keyword">new</span> <span class="class-name">InterfazServiceImpl</span>();
+<span class="comment">// 5. Inyecta dependencias...</span>
+ciudad.<span class="method">setCoordinador</span>(<span class="keyword">this</span>);
+calculo.<span class="method">setCoordinador</span>(<span class="keyword">this</span>);
+interfazService.<span class="method">setCoordinador</span>(<span class="keyword">this</span>);</code></pre>
+
+            <h3>2. Interfaz Desacoplada</h3>
+            <p>La lógica es independiente de la UI. El Factory y el Service proveen la implementación correcta.</p>
+            
+            <div class="warning-box">
+                <strong>⚠️ Desafío Clave con JavaFX</strong>
+                <p style="color: var(--text-secondary);">`InterfazJavaFX` (que `extends Application`) pierde el contexto (Coordinador) al ser invocado por el ciclo de vida de JavaFX.</p>
+                <p><strong>Solución:</strong> Se utilizó un `static Coordinador` para preservar el contexto entre la inicialización de la app y el método `start()`.</p>
+                <pre><code><span class="keyword">public</span> <span class="class-name">InterfazJavaFX</span> <span class="keyword">extends</span> <span class="type">Application</span> <span class="keyword">implements</span> <span class="type">Interfaz</span> {
+    <span class="comment">// Solución: Coordinador estático para mantener el contexto</span>
+    <span class="keyword">private static</span> <span class="type">Coordinador</span> coordinador;
+    
+    <span class="keyword">public</span> <span class="type">void</span> <span class="method">iniciarInterfaz</span>() { ... }
+    
+    <span class="comment">// ... resto de la implementación ...</span>
+}</code></pre>
+            </div>
+
+            <h3>3. Patrón Strategy</h3>
+            <p>Usado para las diferentes lógicas de cálculo de rutas (Directa, Caminando, Con Transbordo).</p>
+            
+            <pre><code><span class="comment">// Interface común para todas las estrategias</span>
+<span class="keyword">public interface</span> <span class="class-name">EstrategiaBusqueda</span> {
+    <span class="type">List&lt;List&lt;Recorrido&gt;&gt;</span> <span class="method">buscar</span>(
+        <span class="type">Parada</span> origen, 
+        <span class="type">Parada</span> destino, 
+        <span class="type">int</span> diaSemana, 
+        <span class="type">LocalTime</span> hora, 
+        <span class="type">Map&lt;Parada, List&lt;Tramo&gt;&gt;</span> conexionesParadas, 
+        <span class="type">Map&lt;String, Tramo&gt;</span> todosLosTramos
+    );
+}</code></pre>
+            
+            <ul class="list-disc mt-6">
+                <li><strong>Uso Actual:</strong> Las estrategias se ejecutan secuencialmente, devolviendo el primer resultado encontrado.</li>
+                <li><strong>Ventajas a Futuro:</strong> El patrón permite al usuario *elegir* la estrategia (ej. "más rápido" vs. "menos caminata") o ejecutarlas en paralelo.</li>
+                <li><strong>Clases Utilitarias:</strong> `CalculosAuxiliares` (con métodos `static`) evita la duplicación de código entre las distintas estrategias.</li>
+            </ul>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

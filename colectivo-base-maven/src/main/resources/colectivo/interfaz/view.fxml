@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Archivo FXML principal de la interfaz gráfica.
+  Propósito: definir la estructura de la ventana principal de la aplicación
+  (BorderPane con una barra lateral izquierda de configuración/búsqueda y
+  una zona central para mostrar un mapa o resultados en texto).
+  Comentarios en español describen las secciones principales y los controles
+  más relevantes (no se documentan todas las variables/atributos menores).
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.web.WebView?>
+
+<?import javafx.scene.control.ListView?>
+<BorderPane fx:id="rootPane" prefHeight="750.0" prefWidth="1200.0" styleClass="root-pane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="colectivo.interfaz.javafx.Controlador">
+
+    <!--
+      LEFT: Barra lateral principal (sidebar) con los controles para realizar
+      búsquedas de recorridos, selección de origen/destino/día/hora y opciones.
+      Contiene títulos, formulario y botones de configuración/idioma/tema.
+      El diseño usa un VBox con padding y separaciones.
+    -->
+    <left>
+        <VBox prefHeight="750.0" prefWidth="500" spacing="20" styleClass="sidebar">
+            <padding>
+                <Insets bottom="15" left="15" right="15" top="15" />
+            </padding>
+
+            <!-- Títulos principales de la aplicación -->
+            <HBox alignment="CENTER">
+                <VBox alignment="CENTER">
+                    <Label fx:id="mainTitle" styleClass="main-title" text="%title.main" />
+                    <Label fx:id="secondaryTitle" styleClass="secondary-title" text="%title.secondary" />
+                </VBox>
+            </HBox>
+
+            <!--
+              Formulario de búsqueda: origen, destino, día y hora de llegada.
+              Se usa un GridPane para alinear etiquetas y campos. El tercer
+              columnIndex contiene botones auxiliares (intercambiar, hora actual).
+            -->
+            <GridPane hgap="10" vgap="10" styleClass="formulario-grid">
+                <Label fx:id="labelOrigen" text="%label.origin" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="comboOrigen" promptText="%prompt.selectOrigin" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label fx:id="labelDestino" text="%label.destination" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="comboDestino" promptText="%prompt.selectDestination" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <!-- Botón para intercambiar origen y destino -->
+                <Button text="↑↓"
+                        onAction="#swapParadas"
+                        GridPane.columnIndex="2"
+                        GridPane.rowIndex="0"
+                        GridPane.rowSpan="2"
+                        GridPane.halignment="CENTER"
+                        GridPane.valignment="CENTER"
+                        styleClass="swap-button" />
+
+                <Label fx:id="labelDia" text="%label.day" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="comboDia" promptText="%prompt.selectDay" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label fx:id="labelLlegada" text="%label.arrival" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <!-- Selector de hora y minuto para la llegada -->
+                <HBox spacing="5" alignment="CENTER_LEFT" GridPane.rowIndex="3" GridPane.columnIndex="1">
+                    <ComboBox fx:id="comboHora" prefWidth="80" promptText="HH"/>
+                    <Label text=":"/>
+                    <ComboBox fx:id="comboMinuto" prefWidth="80" promptText="MM"/>
+                </HBox>
+
+                <!-- Botón para establecer la hora actual en los selectores -->
+                <Button text="🕒"
+                        onAction="#tiempoActual"
+                        GridPane.columnIndex="2"
+                        GridPane.rowIndex="2"
+                        GridPane.rowSpan="2"
+                        GridPane.halignment="CENTER"
+                        GridPane.valignment="CENTER"
+                        styleClass="time-button" />
+
+                <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints halignment="CENTER" minWidth="40" prefWidth="40" />
+                </columnConstraints>
+            </GridPane>
+
+            <!-- Botón principal para iniciar la búsqueda de recorridos -->
+            <HBox alignment="CENTER" spacing="20">
+                <Button fx:id="botonBuscar" onAction="#buscarRecorridos" prefHeight="30" prefWidth="250" text="%button.search" />
+            </HBox>
+
+            <!-- Botones auxiliares: cambiar vista (mapa/texto), tema e idioma -->
+            <HBox alignment="CENTER" spacing="15">
+                <Button fx:id="botonVista"
+                        text="%button.view"
+                        onAction="#cambiarVista"
+                        styleClass="config-button-small"/>
+
+                <Button text="☀️"
+                        styleClass="config-button-small"
+                        onAction="#cambiarTema"/>
+
+                <Button fx:id="botonIdioma"
+                        text="%button.language"
+                        onAction="#cambioIdioma"
+                        styleClass="config-button-small"/>
+            </HBox>
+
+            <!-- Lista de opciones/adicionales y estado de la consulta -->
+            <Label fx:id="labelOpciones" styleClass="options-title" text="%options.title" />
+            <ListView fx:id="optionsListView" VBox.vgrow="ALWAYS" />
+
+            <HBox alignment="CENTER" spacing="10">
+                <Label fx:id="queryCompleted" text="%status.waiting" />
+            </HBox>
+        </VBox>
+    </left>
+
+    <!--
+      CENTER: Área principal para resultados. Utiliza un StackPane para alternar
+      entre una vista de texto (TextArea) y una vista de mapa (WebView) según
+      la preferencia del usuario o la acción de "cambiarVista".
+    -->
+    <center>
+        <StackPane>
+
+            <!-- Caja para mostrar resultados en texto (invisible por defecto) -->
+            <VBox fx:id="textVBox" spacing="10" visible="false">
+                <padding>
+                    <Insets bottom="15" left="15" right="15" top="15" />
+                </padding>
+                <TextArea fx:id="resultsArea" editable="false" promptText="%results.prompt" styleClass="results-area" wrapText="true" VBox.vgrow="ALWAYS" />
+            </VBox>
+
+            <!-- Caja que contiene el WebView para mostrar el mapa interactivo -->
+            <VBox fx:id="mapVBox">
+                <WebView fx:id="webView" VBox.vgrow="ALWAYS" />
+            </VBox>
+
+        </StackPane>
+    </center>
+
+</BorderPane>

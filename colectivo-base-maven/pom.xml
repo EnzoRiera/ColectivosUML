@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.miyo</groupId>
+	<artifactId>colectivo-base</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>colectivo-base</name>
+	<description>Aplicación de gestión de recorridos (Proyecto POO)</description>
+
+	<properties>
+		<java.version>21</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<!-- Versiones centralizadas -->
+		<javafx.version>21.0.8</javafx.version>
+		<junit.jupiter.version>5.11.3</junit.jupiter.version>
+		<junit4.version>4.13.2</junit4.version>
+		<hamcrest.version>2.2</hamcrest.version>
+		<log4j.version>2.25.2</log4j.version>
+		<maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
+		<maven.surefire.plugin.version>3.3.1</maven.surefire.plugin.version>
+		<exec.maven.plugin.version>3.2.0</exec.maven.plugin.version>
+		<maven.checkstyle.plugin.version>3.4.0</maven.checkstyle.plugin.version>
+		<main.class>colectivo.aplicacion.InterfazJavaFX</main.class>
+	</properties>
+
+	<dependencies>
+		<!-- JUnit 5 (API + Engine) -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- JUnit 4 para tests heredados -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit4.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- JUnit Vintage Engine para ejecutar JUnit 4 en JUnit 5 -->
+		<dependency>
+			<groupId>org.junit.vintage</groupId>
+			<artifactId>junit-vintage-engine</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Hamcrest (útil en tests heredados con assertThat) -->
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest</artifactId>
+			<version>${hamcrest.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- JavaFX Dependencies -->
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+			<version>${javafx.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-fxml</artifactId>
+			<version>${javafx.version}</version>
+		</dependency>
+
+		<!-- Asegurar que el runner de JUnit 5 esté disponible -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- PostgreSQL JDBC Driver -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.7.8</version>
+		</dependency>
+
+		<!-- JavaFX Web (para WebView/mapas) -->
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-web</artifactId>
+			<version>21.0.8</version>
+		</dependency>
+
+		<!-- Log4j 2 API -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+
+		<!-- Log4j 2 Core -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+		<testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
+		<plugins>
+			<!-- Compilador Maven -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<configuration>
+					<release>${java.version}</release>
+				</configuration>
+			</plugin>
+
+			<!-- Plugin para ejecutar tests -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven.surefire.plugin.version}</version>
+				<configuration>
+					<useModulePath>false</useModulePath>
+				</configuration>
+			</plugin>
+
+			<!-- Plugin para ejecutar aplicaciones Java (modo consola) -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>${exec.maven.plugin.version}</version>
+				<configuration>
+					<mainClass>${main.class}</mainClass>
+				</configuration>
+			</plugin>
+
+			<!-- Checkstyle plugin (kept from template) -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>${maven.checkstyle.plugin.version}</version>
+				<configuration>
+					<configLocation>config/checkstyle/checkstyle.xml</configLocation>
+					<consoleOutput>true</consoleOutput>
+					<failsOnError>true</failsOnError>
+				</configuration>
+			</plugin>
+
+			<!-- JavaFX Maven Plugin -->
+			<!-- JavaFX Maven Plugin -->
+			<plugin>
+				<groupId>org.openjfx</groupId>
+				<artifactId>javafx-maven-plugin</artifactId>
+				<version>0.0.8</version>
+				<configuration>
+					<mainClass>colectivo.aplicacion.AplicacionConsultas</mainClass>
+					    <options>
+					      <!-- Exportaciones de javafx.graphics -->
+					      <option>--add-exports=javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED</option>
+					      <option>--add-exports=javafx.graphics/com.sun.javafx.scene=ALL-UNNAMED</option>
+					      <option>--add-exports=javafx.graphics/com.sun.javafx.util=ALL-UNNAMED</option>
+					      
+					      <!-- Exportaciones de javafx.web -->
+					      <option>--add-exports=javafx.web/com.sun.javafx.sg.prism.web=ALL-UNNAMED</option>
+					      <option>--add-exports=javafx.web/com.sun.javafx.scene.web=ALL-UNNAMED</option>
+					    </options>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

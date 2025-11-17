@@ -1,0 +1,78 @@
+
+# =========================
+# Java / Maven
+# =========================
+bin/
+target/
+*.class
+data/
+
+# Maven auxiliary files
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# =========================
+# IDEs
+# =========================
+# Eclipse
+.project
+.classpath
+.settings/
+.externalToolBuilders/
+.vscode/
+
+# IntelliJ
+.idea/
+*.iml
+out/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+
+# VS Code
+.vscode/
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+ehthumbs.db
+Thumbs.db
+
+# =========================
+# Archives / packages / logs
+# =========================
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+*.log
+logs/
+
+# =========================
+# Editor / backup files
+# =========================
+*~
+*.swp
+*.bak
+
+# =========================
+# Misc
+# =========================
+hs_err_pid*
+replay_pid*
+
+# Optional: carpeta para librerías manuales. Si prefieres versionarlas, quita la siguiente línea.
+# Si usas libs/ para JARs compartidos, considera usar Git LFS o un repositorio de artefactos en su lugar.
+libs/

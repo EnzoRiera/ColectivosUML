@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.ComboBox?>
+
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="colectivo.interfaz.javafx.Controlador"
+            prefHeight="750.0" prefWidth="800.0"
+            styleClass="root-pane">
+    <top>
+        <VBox spacing="15">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <HBox alignment="CENTER">
+                <VBox alignment="CENTER">
+                    <Label text="%title.main" styleClass="main-title"/>
+                    <Label text="%title.secondary" styleClass="secondary-title"/>
+                </VBox>
+            </HBox>
+
+            <GridPane hgap="10" vgap="10" styleClass="formulario-grid">
+
+                <Label text="%label.origin"  GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="comboOrigen" promptText="%prompt.selectOrigin" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="%label.destination" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="comboDestino" promptText="%prompt.selectDestination" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="%label.day" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="comboDia" promptText="%prompt.selectDay" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="%label.arrival" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <HBox spacing="5" alignment="CENTER_LEFT" GridPane.rowIndex="3" GridPane.columnIndex="1">
+                    <ComboBox fx:id="comboHora" prefWidth="80" promptText="HH"/>
+                    <Label text=":"/>
+                    <ComboBox fx:id="comboMinuto" prefWidth="80" promptText="MM"/>
+                </HBox>
+
+                <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+                    <ColumnConstraints/>
+                </columnConstraints>
+            </GridPane>
+
+            <HBox alignment="CENTER">
+                <Button text="%button.search"
+                        prefHeight="30" prefWidth="250" onAction="#onSearchButtonClick"/>
+            </HBox>
+
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="15" bottom="10" left="15"/>
+            </padding>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="%options.title" styleClass="options-title"/>
+                <Label fx:id="optionsSummaryLabel"
+                       wrapText="true"
+                       maxWidth="Infinity"
+                       HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <TextArea fx:id="resultsArea"
+                      styleClass="results-area"
+                      editable="false"
+                      wrapText="true"
+                      VBox.vgrow="ALWAYS"
+                      promptText="%results.prompt"/>
+
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets top="10" right="15" bottom="10" left="15"/>
+            </padding>
+
+            <Label fx:id="queryCompleted" text="%status.waiting"/>
+
+        </HBox>
+    </bottom>
+
+</BorderPane>

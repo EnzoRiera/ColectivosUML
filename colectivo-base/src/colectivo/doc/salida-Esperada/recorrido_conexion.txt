@@ -1,0 +1,30 @@
+Parada origen: Parada [codigo=88, direccion=Rivadavia, 2496]
+Parada destino: Parada [codigo=13, direccion=Alto R�o Senguer, 1311]
+Llega a la parada: 10:35
+============================
+Linea: L�nea 1 Ida
+Paradas: [Parada [codigo=88, direccion=Rivadavia, 2496], Parada [codigo=97, direccion=Santa Fe, 795], Parada [codigo=44, direccion=Espa�a, 1660]]
+Hora de Salida: 10:48
+Duraci�n: 00:02
+============================
+Linea: L�nea 5 Regreso
+Paradas: [Parada [codigo=44, direccion=Espa�a, 1660], Parada [codigo=43, direccion=Espa�a, 1450], Parada [codigo=47, direccion=Espa�a, 928], Parada [codigo=99, direccion=Sarmiento, 229], Parada [codigo=24, direccion=Bartolom� Mitre, 401], Parada [codigo=5, direccion=28 De Julio, 200], Parada [codigo=54, direccion=Hip�lito Yrigoyen, 457], Parada [codigo=28, direccion=Bouchard, 400], Parada [codigo=101, direccion=Vicente L�pez Y Planes, 315], Parada [codigo=18, direccion=Avenida Juan Xxiii, 1708], Parada [codigo=78, direccion=Necochea, 1022], Parada [codigo=13, direccion=Alto R�o Senguer, 1311]]
+Hora de Salida: 11:07:30
+Duraci�n: 00:18:30
+============================
+Duraci�n total: 00:51
+Hora de llegada: 11:26
+============================
+Linea: L�nea 4 Regreso
+Paradas: [Parada [codigo=88, direccion=Rivadavia, 2496], Parada [codigo=63, direccion=Lewis Jones, 1336], Parada [codigo=65, direccion=Lewis Jones, 919], Parada [codigo=64, direccion=Lewis Jones, 200], Parada [codigo=77, direccion=Mariano Moreno, 193], Parada [codigo=25, direccion=Bartolom� Mitre, 610], Parada [codigo=5, direccion=28 De Julio, 200]]
+Hora de Salida: 10:36
+Duraci�n: 00:12
+============================
+Linea: L�nea 5 Regreso
+Paradas: [Parada [codigo=5, direccion=28 De Julio, 200], Parada [codigo=54, direccion=Hip�lito Yrigoyen, 457], Parada [codigo=28, direccion=Bouchard, 400], Parada [codigo=101, direccion=Vicente L�pez Y Planes, 315], Parada [codigo=18, direccion=Avenida Juan Xxiii, 1708], Parada [codigo=78, direccion=Necochea, 1022], Parada [codigo=13, direccion=Alto R�o Senguer, 1311]]
+Hora de Salida: 10:55
+Duraci�n: 00:11
+============================
+Duraci�n total: 00:31
+Hora de llegada: 11:06
+============================

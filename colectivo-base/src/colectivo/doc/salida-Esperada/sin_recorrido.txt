@@ -1,0 +1,7 @@
+Parada origen: Parada [codigo=66, direccion=Los Alamos, 3900]
+Parada destino: Parada [codigo=31, direccion=Bv. Almirante Brown, 3053]
+Llega a la parada: 10:35
+============================
+No hay un recorrido recomendado
+
+

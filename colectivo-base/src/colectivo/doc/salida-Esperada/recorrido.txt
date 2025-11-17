@@ -1,0 +1,20 @@
+Parada origen: Parada [codigo=44, direccion=Espa�a, 1660]
+Parada destino: Parada [codigo=47, direccion=Espa�a, 928]
+Llega a la parada: 10:35
+============================
+Linea: L�nea 1 Ida
+Paradas: [Parada [codigo=44, direccion=Espa�a, 1660], Parada [codigo=43, direccion=Espa�a, 1450], Parada [codigo=47, direccion=Espa�a, 928]]
+Hora de Salida: 10:50
+Duraci�n: 00:03
+============================
+Duraci�n total: 00:18
+Hora de llegada: 10:53
+============================
+Linea: L�nea 5 Regreso
+Paradas: [Parada [codigo=44, direccion=Espa�a, 1660], Parada [codigo=43, direccion=Espa�a, 1450], Parada [codigo=47, direccion=Espa�a, 928]]
+Hora de Salida: 10:47:30
+Duraci�n: 00:03
+============================
+Duraci�n total: 00:15:30
+Hora de llegada: 10:50:30
+============================
